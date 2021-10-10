@@ -2,6 +2,7 @@ import { useEffect, useReducer } from "react";
 import { todoReducer } from "./todoReducer";
 import "./App.css";
 import { useForm } from "./hooks/useForm";
+import { TodoList } from "./components/TodoList";
 
 const init = () => {
   return JSON.parse(localStorage.getItem('todos')) || [];
@@ -26,7 +27,6 @@ export const TodoApp = () => {
   };
 
   const handleToggle = todoId => {
-    console.log(todoId);
     dispatch({
       type: 'toggle',
       payload: todoId
@@ -54,27 +54,18 @@ export const TodoApp = () => {
     dispatch(action);
     reset();
   };
+  
   return (
     <div className="App">
       <h1>Todo App <small>({todos.length})</small></h1>
       <hr />
       <div className="row">
         <div className="col-7">
-          <ul className="list-group list-group-flush">
-          {
-            todos.map((todo, i) => (
-              <li
-              className="list-group-item"
-              key={todo.id}>
-                <p
-                  className={`${todo.done && 'completed'}`}
-                  onClick={() => handleToggle(todo.id)}>{i + 1}.{todo.desc}</p>
-                <button className="btn btn-danger" onClick={() => handleDelete(todo.id)}>Delete</button>
-              </li>
-              
-            ))
-          }
-        </ul>
+          <TodoList
+            todos={todos}
+            handleDelete={handleDelete}
+            handleToggle={handleToggle}
+          />
         </div>
         <div className="col-5">
           <h4>Add ToDo</h4>
