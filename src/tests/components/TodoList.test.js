@@ -18,7 +18,6 @@ describe('Testing <TodoList /> component.', () => {
   });
 
   test('should render 2 components.', () => {
-    console.log(demosTodos.length);
     expect(wrapper.find('TodoListItem').length).toBe(demosTodos.length);
   });
 });
