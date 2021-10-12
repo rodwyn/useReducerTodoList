@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <TodoList /> component. should render correctly. 1`] = `
+<ul
+  className="list-group list-group-flush"
+>
+  <TodoListItem
+    handleDelete={[MockFunction]}
+    handleToggle={[MockFunction]}
+    i={0}
+    key="123"
+    todo={
+      Object {
+        "desc": "Leran to walk.",
+        "done": false,
+        "id": 123,
+      }
+    }
+  />
+  <TodoListItem
+    handleDelete={[MockFunction]}
+    handleToggle={[MockFunction]}
+    i={1}
+    key="124"
+    todo={
+      Object {
+        "desc": "Leran to fly.",
+        "done": false,
+        "id": 124,
+      }
+    }
+  />
+</ul>
+`;
